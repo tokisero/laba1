@@ -59,7 +59,35 @@ public class Complex {
     public double lengthSQ() {
         return re * re + im * im;
     }
+    /**
+     * Subtract operation.
+     * @param b subtrahend
+     * @return this Complex object whose value is (this - b)
+     */
+    public Complex minus(Complex b) {
+        re -= b.re;
+        im -= b.im;
+        return this;
+    }
 
+    /**
+     * Divide operation.
+     * @param b divisor
+     * @return this Complex object whose value is (this / b)
+     */
+    public Complex divide(Complex b) {
+        double den = b.lengthSQ();
+        if (den == 0) {
+            re = 0;  // Handle division by zero gracefully
+            im = 0;
+        } else {
+            double newRe = (re * b.re + im * b.im) / den;
+            double newIm = (im * b.re - re * b.im) / den;
+            re = newRe;
+            im = newIm;
+        }
+        return this;
+    }
     /**
      * Scale operation (multiply by a real number)
      * @param scalar the scaling factor
