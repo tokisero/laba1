@@ -346,26 +346,26 @@ class MandelbrotSetTask extends Task<Long> {
     static final Color[] colors = new Color[256];
 
     static {
-        
         /**
-         * Color stops for colors table: color values
+         * Color stops for colors table: color values (changed to green to purple tones)
          */
         Color[] cc = {
-            Color.rgb(40, 0, 0),
-            Color.RED,
-            Color.WHITE,
-            Color.RED,
-            Color.rgb(100, 0, 0),
-            Color.RED,
-            Color.rgb(50, 0, 0)
+                Color.rgb(0, 50, 0),      // Dark green
+                Color.GREEN,
+                Color.rgb(128, 0, 128),   // Purple
+                Color.MAGENTA,
+                Color.rgb(0, 128, 0),     // Medium green
+                Color.VIOLET,
+                Color.rgb(75, 0, 130)     // Indigo
         };
-        
+
         /**
          * Color stops for colors table: relative position in the table
          */
         double[] cp = {
-            0, 0.17, 0.25, 0.30, 0.5, 0.75, 1,};
-        
+                0, 0.17, 0.25, 0.30, 0.5, 0.75, 1,
+        };
+
         /**
          * Color table population
          */
@@ -379,4 +379,5 @@ class MandelbrotSetTask extends Task<Long> {
             colors[i] = cc[j].interpolate(cc[j + 1], val);
         }
     }
+
 }
